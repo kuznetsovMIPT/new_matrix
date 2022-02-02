@@ -1,7 +1,7 @@
 #include "matrix2_0.h"
 #include<iostream>
 #include<cassert>
-using namespace std;
+using namespace std;  // УБРАТЬ! std:: прописывать явно!
 matrix:: matrix(unsigned int row, unsigned int column): row(row), column(column){
     assert(column !=0 && row !=0);
     data = new double[row*column];
@@ -16,7 +16,7 @@ matrix:: matrix(unsigned int row, unsigned int column,const double *mass): matri
 matrix::matrix(const matrix &matrix): matrix::matrix(matrix.row, matrix.column){
     for (unsigned int i = 0; i < row; i++) {
         for (unsigned int j = 0; j < column; j++) {
-            data[j+i*column] =matrix.data[j+i*column];
+            data[j+i*column] =matrix.data[j+i*column];  // сделать опратор оьращения к элементу по 2 индексам double& operator(uint i, uint j) const и не const
         }
     }
 }
