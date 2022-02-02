@@ -19,9 +19,9 @@ public:
     matrix& operator-= (const matrix& matrix2);
     matrix operator* (const matrix &matrix2);
     matrix operator+ (const matrix &matrix2);
-    //matrix operator- (const matrix &matrix2);
-    friend matrix operator- (matrix const &, matrix const &);
-    void show_matrix();
+    //matrix operator- (const matrix &matrix2);  // Оставить
+    friend matrix operator- (matrix const &, matrix const &);  // Убрать
+    void show_matrix();  // Заменить на оператор вывода в поток << (нужен friend)
     ~matrix(){
         delete [] data;
     };
@@ -29,8 +29,8 @@ private:
     unsigned int row;
     unsigned int column;
     double *data = nullptr;
-    unsigned int rank = 0;
-    double det = 0;
+    unsigned int rank = 0;  // Зачем ??
+    double det = 0;  // Зачем?
 
 };
 
